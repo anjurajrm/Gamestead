@@ -1,0 +1,550 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: black;
+  margin: 0;
+  color: white;
+}
+/* MAIN HEADING*/
+h1 {
+  font-family: "Black Ops One", sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 25px;
+  display: inline-block;
+  padding-left: 15px;
+}
+
+/* menu bar */
+.bar1,
+.bar2,
+.bar3 {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-7px, 4px);
+  transform: rotate(-45deg) translate(-7px, 4px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -7px);
+  transform: rotate(45deg) translate(-8px, -7px);
+}
+.container-2 {
+  cursor: pointer;
+  float: right;
+  padding: 15px;
+}
+.topnav {
+  text-align: center;
+  margin: 0 8% 0 8%;
+  display: none;
+}
+.topnav a {
+  padding: 10px;
+  display: block;
+  font-weight: 800;
+  font-size: 14px;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  font-family: "Russo One", sans-serif;
+  text-transform: uppercase;
+}
+.topnav a:hover {
+  background-color: grey;
+  color: white;
+  transition: 0.5s;
+}
+.show-nav {
+  display: block;
+}
+
+.searchTerm {
+  border: 1px solid black;
+  height: 40px;
+  width: 60%;
+  color: black;
+  background-color: silver;
+  text-align: center;
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  position: relative;
+  font-size: 14px;
+}
+.searchButton {
+  height: 40px;
+  font-family: "Russo One", sans-serif;
+  border: 1px solid black;
+  color: black;
+  background-color: lemonchiffon;
+  text-align: center;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+  position: absolute;
+}
+
+.searchButton:hover {
+  color: black;
+  background-color: grey;
+  font-weight: 700;
+  transition: 0.5s;
+}
+
+.search-bar {
+  margin: 30px 0 0 50px;
+}
+
+.main-games p {
+  font-size: 18px;
+  text-align: center;
+  line-height: 30px;
+  font-family: "Courgette", cursive;
+  font-style: italic;
+  margin: 40px 5% 40px 5%;
+  color: silver;
+}
+
+.wrapper h2 {
+  text-align: center;
+  font-family: "Russo One", sans-serif;
+}
+
+.img-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 25px;
+}
+.img-container img {
+  width: 300px;
+  height: 225px;
+  border-radius: 2px;
+}
+
+.main-image {
+  opacity: 1;
+  padding: 0 0 8% 5%;
+  cursor: pointer;
+}
+.main-image:hover {
+  opacity: 0.5;
+
+  transition: 1s;
+}
+
+.hidden {
+  display: none;
+}
+
+/*--------RESULTS PAGE----*/
+.results {
+  font-weight: 500;
+  margin-left: 10px;
+}
+.results h2 {
+  text-align: center;
+  font-family: "Russo One", sans-serif;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin: 20px 0 0 20px;
+}
+.results ul {
+  list-style: none;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+.results li {
+  margin-bottom: 50px;
+}
+
+.results h3 {
+  padding: 5px;
+
+  cursor: pointer;
+  color: grey;
+  text-transform: uppercase;
+}
+.results h3 i {
+  color: red;
+}
+.results h3:hover {
+  transition: 0.5s;
+  color: white;
+  font-weight: 800;
+}
+.srch-rslts img {
+  border: 0.5px solid rgba(128, 128, 128, 0.295);
+  width: 300px;
+  height: 225px;
+}
+.error-message p {
+  font-family: "Black Ops One", sans-serif;
+  color: yellow;
+  text-align: center;
+}
+.error-message h2 {
+  color: red;
+  font-size: 50px;
+}
+
+/* Game details section*/
+
+.gameInfo {
+  margin: 0 20px 50px 20px;
+  line-height: 25px;
+}
+.gameInfo h2 {
+  margin: 30px;
+  padding-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Russo One", sans-serif;
+  color: white;
+  background-color: rgba(70, 67, 67, 0.233);
+  border-radius: 5px;
+}
+
+.details {
+  font-family: "Russo One", sans-serif;
+}
+.rating {
+  color: yellow;
+  padding-bottom: 10px;
+  font-family: "Russo One", sans-serif;
+  text-transform: uppercase;
+}
+.gameInfo a {
+  font-size: 35px;
+  padding-right: 15px;
+}
+.fa-xbox:hover {
+  transition: 0.5s;
+  color: greenyellow;
+}
+.fa-playstation:hover {
+  transition: 0.5s;
+  color: blue;
+}
+.fa-windows:hover {
+  transition: 0.5s;
+  color: rgb(10, 174, 224);
+}
+.description {
+  border: 3px solid rgba(128, 128, 128, 0.281);
+  border-top: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  text-align: justify;
+  font-family: "Montserrat", sans-serif;
+  line-height: 30px;
+  padding: 10px;
+}
+.gameInfo span {
+  color: red;
+}
+.gameInfo h5 {
+  color: yellow;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.ytvideo {
+  width: 285px;
+  height: 215px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.desc p {
+  font-size: 20px;
+  font-family: "Russo One", sans-serif;
+  font-weight: 300;
+  color: gray;
+  background-color: rgb(70, 67, 67);
+}
+
+.desc {
+  border: 1px solidrgba(128, 128, 128, 0.281);
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgb(70, 67, 67);
+}
+
+.platform {
+  color: grey;
+}
+/*-----footer----*/
+footer {
+  font-family: "Russo One", sans-serif;
+  background-color: rgb(219, 217, 217);
+  text-align: center;
+  margin-top: 100px;
+}
+footer h4 {
+  margin: 0;
+  font-size: 15px;
+  padding-top: 5px;
+  color: black;
+  padding-bottom: 10px;
+}
+footer a {
+  font-size: 30px;
+  padding: 10px;
+}
+footer i {
+  color: black;
+  margin-top: 10px;
+}
+.fa-envelope:hover {
+  color: grey;
+}
+.fa-instagram:hover {
+  color: rgb(221, 22, 72);
+}
+.fa-linkedin:hover {
+  color: rgb(68, 132, 184);
+}
+
+#myBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  background-color: white;
+
+  border-radius: 10px;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+#myBtn i {
+  background-color: white;
+  color: black;
+}
+#myBtn:hover {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+@media screen and (min-width: 581px) and (max-width: 767px) {
+  .container-2 {
+    display: none;
+  }
+  .topnav {
+    display: block;
+    float: right;
+    padding: 15px 0 20px 0;
+  }
+  .topnav a {
+    display: inline-block;
+    background-color: black;
+    color: silver;
+  }
+  .topnav a:hover {
+    color: white;
+    background-color: black;
+    transition: 0.5s;
+    font-weight: 120%;
+  }
+  header {
+    clear: both;
+    overflow: auto;
+  }
+  h1 {
+    float: left;
+    padding-left: 6%;
+  }
+  .search-bar {
+    padding-left: 10%;
+  }
+  .img-container img {
+    width: 400px;
+    height: 300px;
+  }
+  .topnav a,
+  .main-games p,
+  .description p {
+    font-size: 110%;
+  }
+  .ytvideo {
+    width: 450px;
+    height: 337.5px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .container-2 {
+    display: none;
+  }
+  .topnav {
+    display: block;
+    float: right;
+    padding: 15px 0 20px 0;
+  }
+  .topnav a {
+    display: inline-block;
+    background-color: black;
+    color: silver;
+  }
+  .topnav a:hover {
+    color: white;
+    background-color: black;
+    transition: 0.5s;
+    font-weight: 120%;
+  }
+  header {
+    clear: both;
+    overflow: auto;
+  }
+  h1 {
+    float: left;
+    padding-left: 6%;
+  }
+  .search-bar {
+    padding-left: 12.5%;
+  }
+  .img-container img {
+    width: 400px;
+    height: 300px;
+  }
+  .topnav a,
+  .main-games p,
+  .description p {
+    font-size: 120%;
+  }
+  .ytvideo {
+    width: 475px;
+    height: 356.5px;
+  }
+  .gameInfo {
+    margin: 0 7% 0 7%;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .container-2 {
+    display: none;
+  }
+  .topnav {
+    display: block;
+    float: right;
+    padding: 15px 0 20px 0;
+  }
+  .topnav a {
+    display: inline-block;
+    background-color: black;
+    color: silver;
+  }
+  .topnav a:hover {
+    color: white;
+    background-color: black;
+    transition: 0.5s;
+    font-weight: 120%;
+  }
+  header {
+    clear: both;
+    overflow: auto;
+  }
+  h1 {
+    float: left;
+    font-size: 27px;
+    padding-left: 6%;
+  }
+  .search-bar {
+    padding-left: 15%;
+    margin-top: 60px;
+  }
+  .img-container img {
+    width: 450px;
+    height: 337.5px;
+  }
+  .topnav a,
+  .main-games p,
+  .description p,
+  .details,
+  .rating {
+    font-size: 130%;
+    line-height: 130%;
+  }
+  .ytvideo {
+    width: 500px;
+    height: 375px;
+  }
+  .gameInfo {
+    margin: 0 10% 0 10%;
+  }
+}
+@media screen and (min-width: 1441px) {
+  .container-2 {
+    display: none;
+  }
+  .topnav {
+    display: block;
+    float: right;
+    padding: 15px 0 20px 0;
+  }
+  .topnav a {
+    display: inline-block;
+    background-color: black;
+    color: silver;
+  }
+  .topnav a:hover {
+    color: white;
+    background-color: black;
+    transition: 0.5s;
+    font-weight: 120%;
+  }
+  header {
+    clear: both;
+    overflow: auto;
+  }
+  h1 {
+    float: left;
+    font-size: 27px;
+    padding-left: 6%;
+  }
+  .search-bar {
+    padding-left: 15%;
+    margin-top: 75px;
+  }
+
+  .img-container img {
+    width: 475px;
+    height: 356.5px;
+  }
+  .topnav a,
+  .main-games p,
+  .description p,
+  .details,
+  .rating {
+    font-size: 135%;
+    line-height: 140%;
+  }
+  .ytvideo {
+    width: 550px;
+    height: 412.5px;
+  }
+  .gameInfo {
+    margin: 0 12% 0 12%;
+  }
+}

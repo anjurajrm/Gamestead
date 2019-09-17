@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="A games library app -search for your favorite games"
+    />
+    <title>Gamestead-a games library.</title>
+    <link rel="stylesheet" type="text/css" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Merriweather&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Courgette&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <h1>G <i class="fas fa-headphones-alt"></i> mestead</h1>
+        <div class="container-2">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </div>
+      <div class="topnav">
+        <a class="gohome" href="#home">Home</a>
+        <a class="doc-nav" href="#section-footer">Contact</a>
+      </div>
+      <section class="search-bar">
+        <div class="search">
+          <input
+            type="text"
+            placeholder="&#xF002; SEARCH GAMES"
+            class="searchTerm"
+            id="searchValue"
+            style="font-family:Arial,FontAwesome"
+            required
+          />
+          <button type="submit" class="searchButton">Search</button>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="main-games" id="home">
+        <p>
+          This site contains a archival library of popular games titles. It
+          includes trailers, platforms and ratings.Search for your favorite
+          games or browse through our favorite section.
+        </p>
+        <div class="wrapper">
+          <h2>FAVORITES</h2>
+          <div class="img-container">
+            <div class="main-image 1">
+              <img
+                src="https://psmedia.playstation.com/is/image/psmedia/red-dead-redemption-2-listing-thumb-01-ps4-eu-01may18?$Icon$"
+                alt="red dead redemption 2"
+              />
+            </div>
+
+            <div class="main-image 2">
+              <img
+                src="https://s1.gaming-cdn.com/images/products/2487/orig/shadow-of-the-tomb-raider-cover.jpg"
+                alt="tomb raider "
+              />
+            </div>
+
+            <div class="main-image 3">
+              <img
+                src="https://cdn.images.dailystar.co.uk/dynamic/184/photos/600000/620x/Sekiro-Shadows-Die-Twice-DLC-7-Gameplay-features-we-want-FromSoftware-to-add-to-the-game-769747.jpg"
+                alt="sekiro"
+              />
+            </div>
+
+            <div class="main-image 4">
+              <img
+                src="http://compass.xboxlive.com/assets/f3/9c/f39cdd06-b04d-4b7c-9a06-8aa93a8ae136.jpg?n=FH4_Emozione-02_story.jpg"
+                alt="forza horizon 4 "
+              />
+            </div>
+
+            <div class="main-image 5">
+              <img
+                src="https://amp.businessinsider.com/images/5be1e8a8f556fc396f25544a-750-563.jpg"
+                alt="fortnite "
+              />
+            </div>
+
+            <div class="main-image 6">
+              <img
+                src="https://hb.imgix.net/74e8d7c2ec7dde490abf64d54f9828fa073ae4e3.jpg?auto=compress,format&fit=crop&h=353&w=616&s=6b9af392df9564413a51c35a14a3c6d1"
+                alt="assasins creed odessy "
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="searchResults" class="hidden results">
+        <h2>search results</h2>
+        <ul id="search-results" class="srch-rslts"></ul>
+        <div id="js-error-message" class="error-message"></div>
+      </section>
+
+      <section class="gameInfo "></section>
+    </main>
+
+    <footer id="section-footer">
+      <a href="mailto:anjurajaram26@gmail.com" target="_blank"
+        ><i class="far fa-envelope"></i
+      ></a>
+      <a href="https://www.instagram.com/aj_rjrm/" target="_blank"
+        ><i class="fab fa-instagram"></i
+      ></a>
+      <a
+        href="https://www.linkedin.com/in/anju-rajaram-553aaa69/"
+        target="_blank"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+      <h4><i class="far fa-copyright"></i>2019.ANJU RAJARAM.</h4>
+    </footer>
+    <button id="myBtn" title="Go to top">
+      <i class="fas fa-caret-square-up"></i>
+    </button>
+
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
