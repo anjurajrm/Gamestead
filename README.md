@@ -24,10 +24,10 @@ the trailer ,get the rating and watch trailers of their favourite games.
 ## PAGE DESIGNS /SCREENSHOTS
 
 ![sitemap1](6.png)
-![sitemap1](7.png)
-![sitemap1](8.png)
 ![sitemap1](9.png)
 ![sitemap1](10.png)
+![sitemap1](7.png)
+![sitemap1](8.png)
 
 ## TECHNOLOGIES
 
