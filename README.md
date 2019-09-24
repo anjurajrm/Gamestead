@@ -1,3 +1,6 @@
+A games library app created using HTML,CSS and JQuery
+APIs used- rawg.io api and youtube api
+
 # GAMESTEAD
 
 An app created for anyone who wants to know more about games.The app will let the user to search for a game and be able to watch

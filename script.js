@@ -1,56 +1,60 @@
-let yid;
+"use strict";
 const apiKey = "AIzaSyAGXMpHkC4iTZs4uRtYEyLla2Xs6fRmqV8";
 const searchURL = "https://www.googleapis.com/youtube/v3/search";
 
-/*----------------------GET GAME LIST FROM API----------------------------*/
-function searchPage(g) {
-  fetch("https://api.rawg.io/api/games?page_size=10&search=" + g)
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error(response.statusText);
-    })
-    .then(responseJson => displayResults(responseJson))
-    .catch(error => alert("Something went wrong. Try again later."));
-}
-
+let yid;
 /*----------------------GET GAME INFO FROM API  ----------------------------*/
 function gameDetails(gameName) {
+  //feed the data to a function to fetch data the youtube api
   fetch("https://api.rawg.io/api/games/" + gameName)
     .then(response => response.json())
     .then(responseJson1 => getYouTubeVideos(responseJson1))
-    .catch(error => error => alert("Something went wrong. Try again later."));
+    .catch(error =>
+      alert("Something went wrong with your game search. Try again later.")
+    );
 }
 
-/*----------------------GAME LIST PAGE ----------------------------*/
-function displayResults(responseJson) {
-  $(".gameInfo").empty();
-  $("#search-results").empty();
+/*----------------------GET YOUTUBE VIDEO ----------------------------*/
 
-  $(".main-games").addClass("hidden");
-  // iterate through the items array
-  if (responseJson.count > 0) {
-    for (let i = 0; i < responseJson.results.length; i++) {
-      console.log(responseJson.results[i].name);
-      $("#search-results").append(
-        `<li>
-            <img class="results-image" src='${responseJson.results[i].background_image}'>
-          <h3 id="${i}" class="result-heading">${responseJson.results[i].name} <i class="fas fa-caret-right"></i></h3>
-          </li>`
-      );
-    }
-  } else {
-    $("#js-error-message")
-      .append(`<h2><i class="fas fa-skull-crossbones"></i></h2>
-                                    <p> 404  GAME NOT FOUND !</p>`);
-  }
-  $("#searchResults").removeClass("hidden");
-  gameId(responseJson);
+function formatQueryParams(params) {
+  const queryItems = Object.keys(params).map(
+    key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
+  );
+  return queryItems.join("&");
+}
+
+function getYouTubeVideos(responseJson1) {
+  let query = `${responseJson1.name} Trailer`;
+  const maxResults = 1;
+  const params = {
+    key: apiKey,
+    q: query,
+    part: "snippet",
+    maxResults
+  };
+  const queryString = formatQueryParams(params);
+  const url = searchURL + "?" + queryString;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => displayGame(data, responseJson1))
+    .catch(error => {
+      alert("Something went wrong !Sorry. Try again later.");
+    });
+}
+
+/*----------------------SEARCH A GAME----------------------------*/
+function searchSubmit() {
+  $(".searchButton").click(function() {
+    event.preventDefault();
+
+    const game = $("#searchValue").val();
+    searchPage(game);
+  });
 }
 
 /*----------------------GAME INFORMATION PAGE ----------------------------*/
 function displayGame(data, responseJson1) {
+  $(".gameInfo").removeClass("hidden");
   $("#searchResults").addClass("hidden");
   let youtubeId = data.items[0].id.videoId;
 
@@ -89,6 +93,52 @@ function displayGame(data, responseJson1) {
   }
 }
 
+/*----------------------SEARCH A GAME----------------------------*/
+function searchSubmit() {
+  $(".searchButton").click(function() {
+    event.preventDefault();
+    $("#search-results").empty();
+    $("#js-error-message").empty();
+    const game = $("#searchValue").val();
+    searchPage(game);
+  });
+}
+
+/*----------------------GET GAME LIST FROM API----------------------------*/
+function searchPage(g) {
+  fetch("https://api.rawg.io/api/games?page_size=10&search=" + g)
+    .then(response => response.json())
+    .then(responseJson => displayResults(responseJson))
+    .catch(error => {
+      $("#js-error-message")
+        .html(`<h2><i class="fas fa-skull-crossbones"></i></h2>
+          <p>404 GAME NOT FOUND !</p>`);
+    });
+}
+
+/*----------------------GAME LIST PAGE ----------------------------*/
+function displayResults(responseJson) {
+  // iterate through the items array
+  $(".main-games").addClass("hidden");
+  $("#searchResults").removeClass("hidden");
+
+  if (responseJson.count == 0) {
+    $("#js-error-message")
+      .html(`<h2><i class="fas fa-skull-crossbones"></i></h2>
+          <p>404 GAME NOT FOUND !</p>`);
+  } else {
+    for (let i = 0; i < responseJson.results.length; i++) {
+      $("#search-results").append(
+        `<li>
+            <img class="results-image" src='${responseJson.results[i].background_image}'>
+          <h3 id="${i}" class="result-heading">${responseJson.results[i].name} <i class="fas fa-caret-right"></i></h3>
+          </li>`
+      );
+    }
+  }
+  gameId(responseJson);
+}
+
 /*----------------------GET GAME ID----------------------------*/
 function gameId(responseJson) {
   $("#search-results").on("click", "h3", function(e) {
@@ -97,58 +147,15 @@ function gameId(responseJson) {
     gameDetails(responseJson.results[a].slug);
   });
 }
-
-/*----------------------GET YOUTUBE VIDEO ----------------------------*/
-function formatQueryParams(params) {
-  const queryItems = Object.keys(params).map(
-    key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
-  );
-  return queryItems.join("&");
-}
-
-function getYouTubeVideos(responseJson1) {
-  let query = `${responseJson1.name} Trailer`;
-  const maxResults = 1;
-  const params = {
-    key: apiKey,
-    q: query,
-    part: "snippet",
-    maxResults
-  };
-  const queryString = formatQueryParams(params);
-  const url = searchURL + "?" + queryString;
-  fetch(url)
-    .then(response => response.json())
-    .then(data => displayGame(data, responseJson1))
-    .catch(error => {
-      $("#js-error-message").text(`Something went wrong: ${error.message}`);
-    });
-}
-
-/*----------------------SEARCH A GAME----------------------------*/
-function searchSubmit() {
-  $(".searchButton").click(function() {
-    event.preventDefault();
-
-    const game = $("#searchValue").val();
-    searchPage(game);
-  });
-}
-
-/*----------------------HAMBURGER MENU ----------------------------*/
-
-function hamburgerMenu() {
-  $(".container-2 ").click(function() {
-    this.classList.toggle("change");
-    $(".topnav").toggleClass("show-nav", 500);
-  });
-}
-
 /*----------------------STARTING PAGE ----------------------------*/
 function mainPage() {
   $(".main-image img").on("click", function() {
     $(".main-games").addClass("hidden");
   });
+
+  // when the image on the starting page is clicked
+  // name of the game name is fed to a function gameDetails
+  // to fetch the game details from an api
 
   $(".1 img").on("click", function() {
     gameDetails("red-dead-redemption-2");
@@ -198,26 +205,32 @@ function docNavigation() {
 
   $(".gohome").on("click", function(e) {
     e.preventDefault();
-
-    $(".gameInfo").empty();
-    $("#searchResults").empty();
+    $(".gameInfo").addClass("hidden");
+    $("#searchResults").addClass("hidden");
     $(".main-games").removeClass("hidden");
   });
 
   $("h1").on("click", function(e) {
     e.preventDefault();
-    $(".gameInfo").empty();
-    $("#searchResults").empty();
+    $(".gameInfo").addClass("hidden");
+    $("#searchResults").addClass("hidden");
     $(".main-games").removeClass("hidden");
   });
 }
+/*----------------------HAMBURGER MENU ----------------------------*/
 
+function hamburgerMenu() {
+  $(".container-2 ").click(function() {
+    this.classList.toggle("change");
+    $(".topnav").toggleClass("show-nav", 500);
+  });
+}
 /*------FUNCTIONS-------*/
 
 $(function() {
   console.log("App loaded! Waiting for submit!");
   mainPage();
-  searchSubmit();
   hamburgerMenu();
   docNavigation();
+  searchSubmit();
 });

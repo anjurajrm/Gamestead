@@ -1,11 +1,12 @@
 * {
   box-sizing: border-box;
-}
-body {
-  background-color: black;
   margin: 0;
   color: white;
 }
+body {
+  background-color: black;
+}
+/* MAIN HEADING*/
 /* MAIN HEADING*/
 h1 {
   font-family: "Black Ops One", sans-serif;
@@ -43,7 +44,8 @@ h1 {
 .container-2 {
   cursor: pointer;
   float: right;
-  padding: 15px;
+  padding-right: 7%;
+  padding-top: 15px;
 }
 .topnav {
   text-align: center;
@@ -73,39 +75,43 @@ h1 {
 .searchTerm {
   border: 1px solid black;
   height: 40px;
-  width: 60%;
+  width: 70%;
   color: black;
-  background-color: silver;
   text-align: center;
   border-right: none;
   border-radius: 5px 0 0 5px;
   outline: none;
   position: relative;
-  font-size: 14px;
+  font-size: 18px;
 }
+
 .searchButton {
+  width: 80px;
   height: 40px;
   font-family: "Russo One", sans-serif;
   border: 1px solid black;
   color: black;
-  background-color: lemonchiffon;
   text-align: center;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   text-transform: uppercase;
   position: absolute;
 }
 
 .searchButton:hover {
-  color: black;
-  background-color: grey;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
   font-weight: 700;
   transition: 0.5s;
 }
 
 .search-bar {
-  margin: 30px 0 0 50px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
 }
 
 .main-games p {
@@ -131,19 +137,17 @@ h1 {
   margin-top: 25px;
 }
 .img-container img {
-  width: 300px;
+  width: 290px;
   height: 225px;
-  border-radius: 2px;
 }
 
 .main-image {
   opacity: 1;
-  padding: 0 0 8% 5%;
+  padding: 0 0 8% 2%;
   cursor: pointer;
 }
 .main-image:hover {
   opacity: 0.5;
-
   transition: 1s;
 }
 
@@ -154,7 +158,7 @@ h1 {
 /*--------RESULTS PAGE----*/
 .results {
   font-weight: 500;
-  margin-left: 10px;
+  padding-left: 3%;
 }
 .results h2 {
   text-align: center;
@@ -194,14 +198,19 @@ h1 {
   width: 300px;
   height: 225px;
 }
+
+.error-message {
+  margin-bottom: 100%;
+  font-size: 25px;
+}
 .error-message p {
   font-family: "Black Ops One", sans-serif;
   color: yellow;
   text-align: center;
 }
-.error-message h2 {
+.error-message i {
   color: red;
-  font-size: 50px;
+  font-size: 80px;
 }
 
 /* Game details section*/
@@ -381,9 +390,16 @@ footer i {
     width: 400px;
     height: 300px;
   }
-  .topnav a,
+  .srch-rslts img {
+    width: 400px;
+    height: 300px;
+  }
+
+  .sea .topnav a,
   .main-games p,
-  .description p {
+  .description p,
+  .results h2,
+  .error-message {
     font-size: 110%;
   }
   .ytvideo {
@@ -427,9 +443,15 @@ footer i {
     width: 400px;
     height: 300px;
   }
+  .srch-rslts img {
+    width: 400px;
+    height: 300px;
+  }
+
   .topnav a,
   .main-games p,
-  .description p {
+  .description p,
+  .results h2 {
     font-size: 120%;
   }
   .ytvideo {
@@ -472,9 +494,12 @@ footer i {
   }
   .search-bar {
     padding-left: 15%;
-    margin-top: 60px;
   }
   .img-container img {
+    width: 450px;
+    height: 337.5px;
+  }
+  .srch-rslts img {
     width: 450px;
     height: 337.5px;
   }
@@ -482,7 +507,9 @@ footer i {
   .main-games p,
   .description p,
   .details,
-  .rating {
+  .rating,
+  .results h2,
+  .error-message {
     font-size: 130%;
     line-height: 130%;
   }
@@ -525,10 +552,13 @@ footer i {
   }
   .search-bar {
     padding-left: 15%;
-    margin-top: 75px;
   }
 
   .img-container img {
+    width: 475px;
+    height: 356.5px;
+  }
+  .srch-rslts img {
     width: 475px;
     height: 356.5px;
   }
@@ -536,10 +566,13 @@ footer i {
   .main-games p,
   .description p,
   .details,
-  .rating {
+  .rating,
+  .results h2,
+  .error-message {
     font-size: 135%;
     line-height: 140%;
   }
+
   .ytvideo {
     width: 550px;
     height: 412.5px;
